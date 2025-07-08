@@ -1,0 +1,13 @@
+services:
+  - type: cron
+    name: ai-signal-cron
+    env: python
+    plan: free
+    schedule: "30 4 * * *"  # 9:00 AM IST daily
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app/run_daily.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        value: 7639270450:AAHhZYIrw9Jwt1U5ONH25iw9gJnUNo22VeQ
+      - key: TELEGRAM_CHAT_ID
+        value: -4815466314
